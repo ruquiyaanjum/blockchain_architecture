@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blockchain UI</title>
+<link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+rel="stylesheet">
+<style>
+body {
+font-family: 'Roboto', sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+h1 {
+text-align: center;
+color: #333;
+}
+.container {
+max-width: 600px;
+margin: auto;
+padding: 20px;
+background: white;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+input[type="text"] {
+width: calc(100% - 22px);
+padding: 10px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+button {
+width: 100%;
+padding: 10px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+}
+button:hover {
+background-color: #0056b3;
+}
+h2 {
+color: #555;
+margin-top: 20px;
+}
+pre {
+background-color: #f8f9fa;
+padding: 10px;
+border-radius: 4px;
+overflow-x: auto;
+white-space: pre-wrap;
+}
+.alert {
+color: red;
+text-align: center;
+margin: 10px 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Blockchain Miner</h1>
+<input type="text" id="blockData" placeholder="Enter block data" />
+<button id="mineButton">Mine Block</button>
+<div class="alert" id="alert" style="display: none;"></div>
+<h2>Blockchain</h2>
+<pre id="blockchain"></pre>
+</div>
+<script>
+const fetchBlockchain = async () => {
+const response = await fetch('/api/blocks');
+const chain = await response.json();
+document.getElementById('blockchain').innerText = JSON.stringify(chain,
+null, 2);
+};
+document.getElementById('mineButton').addEventListener('click', async () => {
+const data = document.getElementById('blockData').value;
+const alertDiv = document.getElementById('alert');
+alertDiv.style.display = 'none'; // Hide previous alerts
+if (data) {
+await fetch('/api/mine', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({ data })
+});
+document.getElementById('blockData').value = ''; // Clear input field
+fetchBlockchain(); // Refresh the blockchain display
+} else {
+alertDiv.innerText = 'Please enter some data to mine.';
+alertDiv.style.display = 'block'; // Show alert message
+}
+});
+fetchBlockchain(); // Initial fetch to display the blockchain
+</script>
+</body>
+</html>
