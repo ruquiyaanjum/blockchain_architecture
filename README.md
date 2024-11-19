@@ -2,11 +2,7 @@
 
 This is a simple blockchain implementation in JavaScript. It demonstrates the concepts of a blockchain including block creation, mining, and chain validation. The project also includes a basic Express server to interact with the blockchain via HTTP endpoints.
 
-## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
 
 ## Installation
 
