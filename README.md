@@ -22,3 +22,25 @@ Ensure that the following software is installed:
    ```bash
    git clone https://github.com/your-username/Blockchain.git
    cd Blockchain
+
+### Install dependencies
+1. Run the following command to install dependencies:
+   ```bash
+		npm install
+
+### Running the Project
+
+1. Development Mode:
+ ```bash
+	npm run dev
+
+This starts the server in development mode.
+
+2. Peer Mode (for running multiple instances):
+ ```bash
+	npm run dev-peer
+
+This creates a new instance with a different port.
+
+
+
