@@ -28,11 +28,10 @@ Ensure that the following software is installed:
    ```bash
 		npm install
 
-### Development Mode: This starts the server in development mode.
+### Runnig Project
+1. Development Mode and Peer Mode
  ```bash
 	npm run dev
-
-### Peer Mode (for running multiple instances): This creates a new instance with a different port.
  ```bash
 	npm run dev-peer
 
