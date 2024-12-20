@@ -20,8 +20,8 @@ Ensure that the following software is installed:
 
 1. Clone the project to your local machine:
    ```bash
-   git clone https://github.com/your-username/Blockchain.git
-   cd Blockchain
+   git clone https://github.com/ruquiyaanjum/blockchain_architecture.git
+   cd blockchain_architecture
 
 ### Install dependencies
 1. Run the following command to install dependencies:
@@ -30,17 +30,14 @@ Ensure that the following software is installed:
 
 ### Running the Project
 
-1. Development Mode:
+1. Development Mode: This starts the server in development mode.
  ```bash
 	npm run dev
 
-This starts the server in development mode.
-
-2. Peer Mode (for running multiple instances):
+2. Peer Mode (for running multiple instances): This creates a new instance with a different port.
  ```bash
 	npm run dev-peer
 
-This creates a new instance with a different port.
 
 
 
